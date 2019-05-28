@@ -21,10 +21,10 @@ module.exports = {
 
       let urls = [];
       if(premberOptions && premberOptions.urls) {
-        if (typeof premberOptions.urls === "function") {
+        urls = premberOptions.urls;
+
+        if (typeof urls === "function") {
           urls = await urls();
-        } else {
-          urls = premberOptions.urls;
         }
       }
 
