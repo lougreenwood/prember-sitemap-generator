@@ -7,7 +7,7 @@ const writeFile = require('broccoli-file-creator');
 module.exports = {
   name: 'prember-sitemap-generator',
 
-  async treeForPublic() {
+  treeForPublic() {
     this._super.treeForPublic && this._super.treeForPublic.apply(this, arguments);
 
     if (process.env.EMBER_ENV === 'production') {
@@ -24,7 +24,7 @@ module.exports = {
         urls = premberOptions.urls;
 
         if (typeof urls === "function") {
-          urls = await urls();
+          urls = urls();
         }
       }
 
